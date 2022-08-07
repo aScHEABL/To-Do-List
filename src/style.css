@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans+TC&family=Roboto&display=swap');
+
+:root {
+    --dark-grey: #1d2025;
+    --blue-grey-900: #0f172a;
+    --blue-grey-800: #1e293b;
+    --blue-grey-700: #334155;
+    --blue-grey-600: #475569;
+    --blue-grey-500: #64748b;
+    --blue-grey-400: #94a3b8;
+    --blue-grey-300: #cbd5e1;
+    --blue-grey-200: #e2e8f0;
+    --blue-grey-100: #f1f5f9;
+    --blue-grey-50: #f8fafc;
+    --chartreuse: #b9efa4;
+    --turquoise: #17e0cd;
+    --camel: #efc9a4;
+    --pink: #f59cba;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* inbox panel */
+
+.inbox-content {
+    width: 100vw;
+}
+
+.inbox-bg-overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--dark-grey);
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+    grid-template-rows: 1.2fr 8.8fr;
+    grid-template-areas: 
+    "header header"
+    "sidebar content";
+}
+
+.inbox-header {
+    background-color: var(--blue-grey-700);
+    width: 100%;
+    grid-area: header;
+}
+
+.inbox-sidebar {
+    background-color: var(--blue-grey-600);
+    grid-area: sidebar;
+    display: grid;
+    grid-template-rows: 3fr 7fr;
+}
+
+.upcoming-events-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.upcoming-events-div button {
+    display: flex;
+    width: 85%;
+    background-color: var(--blue-grey-200);
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    padding: 6px 16px 6px 16px;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 8px;
+}
+
+.upcoming-events-div button .icon {
+    width: 24px;
+    height: 24px;
+}
