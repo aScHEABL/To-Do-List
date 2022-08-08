@@ -1,4 +1,5 @@
 import '../style.css';
+import toDoListLogo from '../images/check-all.png'
 import inboxIcon from '../images/inbox.png';
 import calendarTodayIcon from '../images/calendar-today.png';
 import calendarWeekIcon from '../images/calendar-week.png';
@@ -19,6 +20,14 @@ export default function createInboxPanel () {
     const header_DOM = document.createElement(`header`);
     header_DOM.classList.add(`inbox-header`);
     bgOverlay_DOM.append(header_DOM);
+
+    const headerLogoH1_DOM = document.createElement(`h1`);
+    const headerLogoImg_DOM = document.createElement(`img`);
+    headerLogoImg_DOM.src = toDoListLogo;
+    headerLogoH1_DOM.classList.add(`header-h1`);
+    headerLogoH1_DOM.textContent = `To Do List`;
+    headerLogoImg_DOM.classList.add(`header-img`);
+    header_DOM.append(headerLogoImg_DOM, headerLogoH1_DOM);
 
     const sidebar_DOM = document.createElement(`sidebar`);
     sidebar_DOM.classList.add(`inbox-sidebar`);

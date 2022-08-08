@@ -46,10 +46,25 @@
     background-color: var(--blue-grey-700);
     width: 100%;
     grid-area: header;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 16px;
+}
+
+.inbox-header .header-img {
+    filter: invert();
+    
+}
+
+.inbox-header .header-h1 {
+    color: var(--blue-grey-200);
+    font-size: 36px;
+    height: 40%;
 }
 
 .inbox-sidebar {
-    background-color: var(--blue-grey-600);
+    background-color: var(--blue-grey-800);
     grid-area: sidebar;
     display: grid;
     grid-template-rows: 3fr 7fr;
@@ -65,18 +80,25 @@
 .upcoming-events-div button {
     display: flex;
     width: 85%;
-    background-color: var(--blue-grey-200);
+    background-color: var(--blue-grey-800);
+    color: var(--blue-grey-200);
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 16px;
     padding: 6px 16px 6px 16px;
     justify-content: flex-end;
     align-items: center;
     flex-direction: row-reverse;
     gap: 8px;
+    cursor: pointer;
+}
+
+.upcoming-events-div button:hover, .upcoming-events-div button:active {
+    background-color: var(--blue-grey-900);
 }
 
 .upcoming-events-div button .icon {
+    filter: invert();
     width: 24px;
     height: 24px;
 }
