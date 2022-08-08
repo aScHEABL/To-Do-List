@@ -54,7 +54,7 @@
 
 .inbox-header .header-img {
     filter: invert();
-    
+    padding-left: 1%;
 }
 
 .inbox-header .header-h1 {

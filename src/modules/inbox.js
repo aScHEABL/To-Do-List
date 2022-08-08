@@ -37,20 +37,20 @@ export default function createInboxPanel () {
     upcomingEventsDiv_DOM.classList.add(`upcoming-events-div`);
     sidebar_DOM.append(upcomingEventsDiv_DOM);
 
-    const sidebarTabsNameArray = ["Inbox", "Today", "This week", "This month"];
-    const sidebarTabs_DOM = sidebarTabsNameArray.map(() => document.createElement(`button`));
-    const sidebarIcons_DOM = sidebarTabsNameArray.map(() => document.createElement(`img`));
+    const sidebarDateTabsNameArray = ["Inbox", "Today", "This week", "This month"];
+    const sidebarTabsButtons_DOM = sidebarDateTabsNameArray.map(() => document.createElement(`button`));
+    const sidebarIcons_DOM = sidebarDateTabsNameArray.map(() => document.createElement(`img`));
     
-    const iconSrcArray = [inboxIcon, calendarTodayIcon, calendarWeekIcon, calendarMonthIcon];
+    const dateIconSrcArray = [inboxIcon, calendarTodayIcon, calendarWeekIcon, calendarMonthIcon];
 
     for (let i = 0; i < 4; i++) {
-        sidebarTabs_DOM[i].textContent = sidebarTabsNameArray[i];
-        sidebarIcons_DOM[i].src = iconSrcArray[i];
+        sidebarTabsButtons_DOM[i].textContent = sidebarDateTabsNameArray[i];
+        sidebarIcons_DOM[i].src = dateIconSrcArray[i];
         sidebarIcons_DOM[i].classList.add(`icon`);
-        sidebarTabs_DOM[i].append(sidebarIcons_DOM[i]);
+        sidebarTabsButtons_DOM[i].append(sidebarIcons_DOM[i]);
     }
 
-    sidebarTabs_DOM.forEach((button) => upcomingEventsDiv_DOM.append(button));
+    sidebarTabsButtons_DOM.forEach((button) => upcomingEventsDiv_DOM.append(button));
 
     
 }
