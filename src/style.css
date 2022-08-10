@@ -102,3 +102,13 @@
     width: 24px;
     height: 24px;
 }
+
+.sidebar-project-div {
+    display: flex;
+}
+
+.sidebar-project-div .sidebar-project-h2 {
+    color: var(--blue-grey-200);
+    padding: 6px 24px 6px 24px;
+    font-size: 24px;
+}

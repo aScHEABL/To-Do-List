@@ -52,5 +52,14 @@ export default function createInboxPanel () {
 
     sidebarDateTabsButtons_DOM.forEach((button) => upcomingEventsDiv_DOM.append(button));
 
+    const sidebarProjectDiv = document.createElement(`div`);
+    const sidebarProjectH2 = document.createElement(`h2`);
+
+    sidebarProjectDiv.classList.add(`sidebar-project-div`);
+    sidebarProjectH2.classList.add(`sidebar-project-h2`);
     
+    sidebarProjectH2.textContent = `Projects`;
+
+    sidebar_DOM.append(sidebarProjectDiv);
+    sidebarProjectDiv.append(sidebarProjectH2);
 }
