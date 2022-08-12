@@ -27,11 +27,11 @@
 
 /* inbox panel */
 
-.inbox-content {
+.content {
     width: 100vw;
 }
 
-.inbox-bg-overlay {
+.bg-overlay {
     height: 100vh;
     width: 100%;
     background-color: var(--dark-grey);
@@ -43,7 +43,7 @@
     "sidebar main";
 }
 
-.inbox-header {
+.header {
     background-color: var(--blue-grey-700);
     width: 100%;
     grid-area: header;
@@ -53,18 +53,18 @@
     padding-left: 16px;
 }
 
-.inbox-header .header-logo {
+.header .header-logo {
     filter: invert();
     padding-left: 1%;
 }
 
-.inbox-header .header-h1 {
+.header .header-h1 {
     color: var(--blue-grey-200);
     font-size: 36px;
     height: 40%;
 }
 
-.inbox-sidebar {
+.sidebar {
     background-color: var(--blue-grey-800);
     grid-area: sidebar;
     display: grid;

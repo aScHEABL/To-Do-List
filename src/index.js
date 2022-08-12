@@ -1,3 +1,20 @@
+import inboxPanel from "./modules/inbox";
 import createInboxPanel from "./modules/inbox";
 
-createInboxPanel();
+inboxPanel();
+
+export function loadInboxPanel () {
+    inboxPanel();
+}
+
+export function loadTodayPanel () {
+
+}
+
+export function loadThisWeek () {
+
+}
+
+export function loadThisMonth () {
+
+}
