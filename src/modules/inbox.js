@@ -5,14 +5,14 @@ import '../style.css';
 // import calendarWeekIcon from '../images/calendar-week.png';
 // import calendarMonthIcon from '../images/calendar-month.png'
 
-export const main_DOM = document.querySelector('main');
-export const addTaskButton_DOM = document.querySelector('[data-add-task-button]');
-export const taskList_DOM = document.querySelector('[data-task-list]');
-export const addTaskPopupDiv_DOM = document.createElement('div');
-export const addTaskPopupButtonsDiv_DOM = document.createElement('div');
-export const taskAddConfirmButton_DOM = document.createElement('button');
-export const taskCancelButton_DOM = document.createElement('button');
-export const taskInput_DOM = document.createElement('input');
+const main_DOM = document.querySelector('main');
+const addTaskButton_DOM = document.querySelector('[data-add-task-button]');
+const taskList_DOM = document.querySelector('[data-task-list]');
+const addTaskPopupDiv_DOM = document.createElement('div');
+const addTaskPopupButtonsDiv_DOM = document.createElement('div');
+const taskAddConfirmButton_DOM = document.createElement('button');
+const taskCancelButton_DOM = document.createElement('button');
+const taskInput_DOM = document.createElement('input');
 
 export default function inboxPanel () {
     console.log('This is the inbox panel');
@@ -42,6 +42,11 @@ addTaskButton_DOM.addEventListener('click', (e) => {
 
 taskAddConfirmButton_DOM.addEventListener('click', (e) => {
     console.log('Add task confirm button has been clicked');
+
+    addTaskButton_DOM.style.display = 'flex';
+
+    main_DOM.removeChild(addTaskPopupDiv_DOM);
+    addTaskPopupDiv_DOM.replaceChildren();
 })
 
 taskCancelButton_DOM.addEventListener('click', (e) => {

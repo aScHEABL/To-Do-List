@@ -17,6 +17,8 @@
     --turquoise: #17e0cd;
     --camel: #efc9a4;
     --pink: #f59cba;
+    --light-pink: #f3aec5;
+    --red: #f80000;
 }
 
 *, *::before, *::after {
@@ -242,6 +244,10 @@ main {
     margin: 8px 0px 8px 0px;
 }
 
+.add-task-button:hover, .add-task-button:active {
+    background-color: var(--light-green);
+}
+
 .add-task-icon {
     width: 24px;
     height: 24px;
@@ -266,7 +272,7 @@ main {
 }
 
 .task-add-confirm-button {
-    background-color: var(--blue-grey-500);
+    background-color: var(--chartreuse);
     border-radius: 8px;
     width: 50%;
     height: 40px;
@@ -274,12 +280,20 @@ main {
     cursor: pointer;
 }
 
+.task-add-confirm-button:hover, .task-add-confirm-button:active {
+    background-color: var(--light-green);
+}
+
 
 .task-cancel-confirm-button {
-    background-color: var(--blue-grey-500);
+    background-color: var(--pink);
     border-radius: 8px;
     width: 50%;
     height: 40px;
     border: none;
     cursor: pointer;
+}
+
+.task-cancel-confirm-button:hover, .task-cancel-confirm-button:active {
+    background-color: var(--light-pink);
 }
