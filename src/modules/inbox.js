@@ -1,9 +1,4 @@
 import '../style.css';
-// import toDoListLogo from '../images/check-all.png'
-// import inboxIcon from '../images/inbox.png';
-// import calendarTodayIcon from '../images/calendar-today.png';
-// import calendarWeekIcon from '../images/calendar-week.png';
-// import calendarMonthIcon from '../images/calendar-month.png'
 
 const main_DOM = document.querySelector('main');
 const addTaskButton_DOM = document.querySelector('[data-add-task-button]');
@@ -45,6 +40,8 @@ taskAddConfirmButton_DOM.addEventListener('click', (e) => {
 
     addTaskButton_DOM.style.display = 'flex';
 
+    addObjectToLocalStorage();
+
     main_DOM.removeChild(addTaskPopupDiv_DOM);
     addTaskPopupDiv_DOM.replaceChildren();
 })
@@ -57,3 +54,12 @@ taskCancelButton_DOM.addEventListener('click', (e) => {
     main_DOM.removeChild(addTaskPopupDiv_DOM);
     addTaskPopupDiv_DOM.replaceChildren();
 })
+
+function addObjectToLocalStorage () {
+    checkIfInputIsEmpty();
+    
+}
+
+function checkIfInputIsEmpty () {
+
+}

@@ -19,6 +19,7 @@
     --pink: #f59cba;
     --light-pink: #f3aec5;
     --red: #f80000;
+    --task-button-height: 40px;
 }
 
 *, *::before, *::after {
@@ -139,68 +140,6 @@
     background-color: var(--blue-grey-900);
 }
 
-/* main {
-    grid-area: main;
-    padding: 5% 10% 0% 10%;
-    display: grid;
-    grid-template-rows: 5% repeat(auto-fit, 40px);
-    row-gap: 16px;
-}
-
-.list-title-h1 {
-    color: var(--blue-grey-200);
-}
-
-.add-task-button {
-    display: flex;
-    background-color: var(--chartreuse);
-    color: var(--blue-grey-800);
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.add-task-button:hover, .add-task-button:active {
-    background-color: var(--light-green);
-}
-
-.add-task-icon {
-    width: 24px;
-    height: 24px;
-}
-
-.task-input {
-    border-radius: 8px;
-}
-
-.task-confirm-button {
-    background-color: var(--blue-grey-500);
-    border-radius: 8px;
-    width: 50%;
-}
-
-.task-list {
-    display: block;
-    flex-wrap: wrap;
-    row-gap: 8px;
-}
-
-.task-list button {
-    width: 100%;
-    display: flex;
-    background-color: var(--blue-grey-700);
-    color: var(--blue-grey-200);
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    align-items: center;
-    justify-content: flex-start;
-    cursor: pointer;
-} */
-
 main {
     width: 100%;
     padding: 5% 10% 0% 10%;
@@ -213,6 +152,7 @@ main {
 .task-button {
     display: flex;
     width: 100%;
+    height: var(--task-button-height);
     align-items: center;
     justify-content: space-between;
     padding: 10px;
@@ -223,10 +163,44 @@ main {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    position: relative;
 }
 
 .task-button:hover, .task-button:active {
     background-color: var(--blue-grey-700);
+}
+
+.task-check-button::before, .task-check-button::after {
+    content: '';
+    border-radius: 50%;
+    display: flex;
+    position: absolute;
+}
+
+.task-check-button::before {
+    height: calc(var(--task-button-height) * 0.6);
+    width: calc(var(--task-button-height) * 0.6);
+    background-color: black;
+    top: 20%;
+    left: 0.75%;
+}
+
+.task-check-button::after {
+    height: calc(var(--task-button-height) * 0.47);
+    width: calc(var(--task-button-height) * 0.47);
+    background-color: white;
+    top: 26.75%;
+    left: 1.125%;
+}
+
+.task-title-h2 {
+    position: absolute;
+    right: 80%;
+    font-size: 20px;
+}
+
+.task-date-button-div {
+
 }
 
 .add-task-button {
@@ -272,6 +246,7 @@ main {
 }
 
 .task-add-confirm-button {
+    font-size: 16px;
     background-color: var(--chartreuse);
     border-radius: 8px;
     width: 50%;
@@ -286,6 +261,7 @@ main {
 
 
 .task-cancel-confirm-button {
+    font-size: 16px;
     background-color: var(--pink);
     border-radius: 8px;
     width: 50%;
