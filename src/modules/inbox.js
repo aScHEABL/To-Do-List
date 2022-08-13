@@ -5,8 +5,14 @@ import '../style.css';
 // import calendarWeekIcon from '../images/calendar-week.png';
 // import calendarMonthIcon from '../images/calendar-month.png'
 
-const addTaskButton_DOM = document.querySelector('[data-add-task-button]');
-const main_DOM = document.querySelector('main');
+export const main_DOM = document.querySelector('main');
+export const addTaskButton_DOM = document.querySelector('[data-add-task-button]');
+export const taskList_DOM = document.querySelector('[data-task-list]');
+export const addTaskPopupDiv_DOM = document.createElement('div');
+export const addTaskPopupButtonsDiv_DOM = document.createElement('div');
+export const taskAddConfirmButton_DOM = document.createElement('button');
+export const taskCancelButton_DOM = document.createElement('button');
+export const taskInput_DOM = document.createElement('input');
 
 export default function inboxPanel () {
     console.log('This is the inbox panel');
@@ -20,16 +26,29 @@ addTaskButton_DOM.addEventListener('click', (e) => {
 
     addTaskButton_DOM.style.display = 'none';
 
-    const taskInput_DOM = document.createElement('input');
-    const taskConfirmButton_DOM = document.createElement('button');
-    const cancelTaskButton_DOM = document.createElement('button');
-
+    addTaskPopupDiv_DOM.classList.add('add-task-popup-div');
+    addTaskPopupButtonsDiv_DOM.classList.add('add-task-popup-buttons-div');
     taskInput_DOM.classList.add('task-input');
-    taskConfirmButton_DOM.classList.add('task-confirm-button');
-    cancelTaskButton_DOM.classList.add('task-confirm-button');
+    taskAddConfirmButton_DOM.classList.add('task-add-confirm-button');
+    taskCancelButton_DOM.classList.add('task-cancel-confirm-button');
 
-    taskConfirmButton_DOM.textContent = 'Add';
-    cancelTaskButton_DOM.textContent = 'Cancel';
+    taskAddConfirmButton_DOM.textContent = 'Add';
+    taskCancelButton_DOM.textContent = 'Cancel';
 
-    main_DOM.append(taskInput_DOM, taskConfirmButton_DOM, cancelTaskButton_DOM);
+    main_DOM.append(addTaskPopupDiv_DOM);
+    addTaskPopupDiv_DOM.append(taskInput_DOM, addTaskPopupButtonsDiv_DOM);
+    addTaskPopupButtonsDiv_DOM.append(taskAddConfirmButton_DOM, taskCancelButton_DOM);
+})
+
+taskAddConfirmButton_DOM.addEventListener('click', (e) => {
+    console.log('Add task confirm button has been clicked');
+})
+
+taskCancelButton_DOM.addEventListener('click', (e) => {
+    console.log('Cancel task confirm button has been clicked');
+
+    addTaskButton_DOM.style.display = 'flex';
+
+    main_DOM.removeChild(addTaskPopupDiv_DOM);
+    addTaskPopupDiv_DOM.replaceChildren();
 })

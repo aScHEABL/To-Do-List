@@ -2,6 +2,7 @@ import inboxPanel from './modules/inbox.js';
 import todayPanel from './modules/today.js';
 import thisWeekPanel from './modules/this-week.js';
 import thisMonthPanel from './modules/this-month.js';
+import indexEventListener from './modules/inbox.js';
 
 inboxPanel();
 
