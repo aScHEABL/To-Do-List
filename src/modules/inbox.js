@@ -41,6 +41,7 @@ taskAddConfirmButton_DOM.addEventListener('click', (e) => {
     addTaskButton_DOM.style.display = 'flex';
 
     addObjectToLocalStorage();
+    createTask();
 
     main_DOM.removeChild(addTaskPopupDiv_DOM);
     addTaskPopupDiv_DOM.replaceChildren();
@@ -57,9 +58,33 @@ taskCancelButton_DOM.addEventListener('click', (e) => {
 
 function addObjectToLocalStorage () {
     checkIfInputIsEmpty();
-    
+
 }
 
 function checkIfInputIsEmpty () {
 
+}
+
+function createTask () {
+    const taskButton_DOM = document.createElement('button');
+    const taskButtonLeftDiv_DOM = document.createElement('div');
+    const taskCheckButton_DOM = document.createElement('div');
+    const taskTitleH2_DOM = document.createElement('h2');
+    const taskButtonRightDiv_DOM = document.createElement('div');
+    const taskDateP_DOM = document.createElement('p');
+
+    taskButton_DOM.classList.add('task-button');
+    taskButtonLeftDiv_DOM.classList.add('task-button-left-div');
+    taskCheckButton_DOM.classList.add('task-check-button');
+    taskTitleH2_DOM.classList.add('task-title-h2');
+    taskButtonRightDiv_DOM.classList.add('task-button-right-div');
+    taskDateP_DOM.classList.add('task-date-p');
+
+    taskTitleH2_DOM.textContent = taskInput_DOM.value;
+    taskDateP_DOM.textContent = 'No Date';
+
+    taskList_DOM.append(taskButton_DOM);
+    taskButton_DOM.append(taskButtonLeftDiv_DOM, taskButtonRightDiv_DOM);
+    taskButtonLeftDiv_DOM.append(taskCheckButton_DOM, taskTitleH2_DOM);
+    taskButtonRightDiv_DOM.append(taskDateP_DOM);
 }

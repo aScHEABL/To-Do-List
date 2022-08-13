@@ -163,11 +163,17 @@ main {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    position: relative;
 }
 
 .task-button:hover, .task-button:active {
     background-color: var(--blue-grey-700);
+}
+
+.task-button-left-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 90%;
 }
 
 .task-check-button::before, .task-check-button::after {
@@ -181,25 +187,27 @@ main {
     height: calc(var(--task-button-height) * 0.6);
     width: calc(var(--task-button-height) * 0.6);
     background-color: black;
-    top: 20%;
-    left: 0.75%;
+    top: 10%;
 }
 
 .task-check-button::after {
     height: calc(var(--task-button-height) * 0.47);
     width: calc(var(--task-button-height) * 0.47);
     background-color: white;
-    top: 26.75%;
-    left: 1.125%;
+    top: 20%;
+    left: 0.45%;
 }
 
 .task-title-h2 {
-    position: absolute;
-    right: 80%;
-    font-size: 20px;
+    position: relative;
+    left: 5%;
 }
 
-.task-date-button-div {
+.task-button-right-div {
+
+}
+
+.task-date-p {
 
 }
 
