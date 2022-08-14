@@ -22,7 +22,7 @@ export function loadThisMonth () {
     thisMonthPanel();
 }
 
-// switch tabs logics
+// Switch tabs logics
 
 export const sidebarDateButtons_DOM = document.querySelectorAll('[data-sidebar-date-button]');
 
@@ -44,3 +44,10 @@ sidebarDateButtons_DOM.forEach((button, index) => {
         }
     })
 })
+
+// Empty all children dom elements of task list
+
+export function emptyTaskList () {
+    const taskList_DOM = document.querySelector('[data-task-list]');
+    taskList_DOM.replaceChildren();
+}
