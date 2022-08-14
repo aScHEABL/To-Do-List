@@ -42,6 +42,7 @@ taskAddConfirmButton_DOM.addEventListener('click', (e) => {
 
     addObjectToLocalStorage();
     createTask();
+    getTaskArray();
 
     main_DOM.removeChild(addTaskPopupDiv_DOM);
     addTaskPopupDiv_DOM.replaceChildren();
@@ -87,4 +88,21 @@ function createTask () {
     taskButton_DOM.append(taskButtonLeftDiv_DOM, taskButtonRightDiv_DOM);
     taskButtonLeftDiv_DOM.append(taskCheckButton_DOM, taskTitleH2_DOM);
     taskButtonRightDiv_DOM.append(taskDateP_DOM);
+}
+
+function getTaskArray () {
+    let taskButtonsArray = document.getElementsByClassName('task-button');
+    let taskCheckButtonsArray = document.getElementsByClassName('task-check-button');
+    // console.log(taskButtonsArray);
+    // console.log(taskCheckButtonsArray);
+    checkButtonEventListener(taskButtonsArray, taskCheckButtonsArray);
+}
+
+function checkButtonEventListener (taskButtonsArray, taskCheckButtonsArray) {
+    for (let i = 0; i < taskButtonsArray.length; i++) {
+        taskCheckButtonsArray[i].addEventListener('click', () => {
+            console.log(`Check task ${i} has been clicked`);
+            taskList_DOM.removeChild(taskButtonsArray[i]);
+        })
+    }
 }
