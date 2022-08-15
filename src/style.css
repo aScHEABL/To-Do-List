@@ -208,7 +208,11 @@ main {
 }
 
 .task-date-p {
+    display: flex;
+}
 
+.task-date-input {
+    display: none;
 }
 
 .add-task-button {

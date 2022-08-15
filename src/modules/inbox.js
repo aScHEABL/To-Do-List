@@ -23,6 +23,8 @@ export default function inboxPanel () {
         console.log('Add task button has been clicked');
     
         addTaskButton_DOM.style.display = 'none';
+
+        taskInput_DOM.value = '';
     
         addTaskPopupDiv_DOM.classList.add('add-task-popup-div');
         addTaskPopupButtonsDiv_DOM.classList.add('add-task-popup-buttons-div');
@@ -63,6 +65,11 @@ export default function inboxPanel () {
     
     function addObjectToLocalStorage () {
         if (checkIfInputIsEmpty() === true) return true;
+        class task {
+            constructor (taskTitle, taskDueDate) {
+                this.taskTitle = taskInput_DOM.value;
+            }
+        }
     }
     
     function checkIfInputIsEmpty () {
@@ -79,6 +86,7 @@ export default function inboxPanel () {
         const taskTitleH2_DOM = document.createElement('h2');
         const taskButtonRightDiv_DOM = document.createElement('div');
         const taskDateP_DOM = document.createElement('p');
+        const taskDateInput_DOM = document.createElement('input');
     
         taskButton_DOM.classList.add('task-button');
         taskButtonLeftDiv_DOM.classList.add('task-button-left-div');
@@ -86,13 +94,17 @@ export default function inboxPanel () {
         taskTitleH2_DOM.classList.add('task-title-h2');
         taskButtonRightDiv_DOM.classList.add('task-button-right-div');
         taskDateP_DOM.classList.add('task-date-p');
+        taskDateInput_DOM.classList.add('task-date-input');
     
         taskButton_DOM.dataset['taskButton'] = '';
         taskButtonLeftDiv_DOM.dataset['taskButtonLeftDiv'] = '';
         taskCheckButton_DOM.dataset['taskCheckButton'] = '';
         taskTitleH2_DOM.dataset['taskTitleH2'] = '';
-        taskButtonRightDiv_DOM.dataset['buttonRightDiv'] = '';
+        taskButtonRightDiv_DOM.dataset['taskButtonRightDiv'] = '';
         taskDateP_DOM.dataset['taskDateP'] = '';
+        taskDateInput_DOM.dataset['taskDateInput'] = '';
+
+        taskDateInput_DOM.type = 'date';
     
         taskTitleH2_DOM.textContent = taskInput_DOM.value;
         taskDateP_DOM.textContent = 'No Date';
@@ -100,31 +112,38 @@ export default function inboxPanel () {
         taskList_DOM.append(taskButton_DOM);
         taskButton_DOM.append(taskButtonLeftDiv_DOM, taskButtonRightDiv_DOM);
         taskButtonLeftDiv_DOM.append(taskCheckButton_DOM, taskTitleH2_DOM);
-        taskButtonRightDiv_DOM.append(taskDateP_DOM);
+        taskButtonRightDiv_DOM.append(taskDateP_DOM, taskDateInput_DOM);
     }
     
     function getTaskArray () {
         let taskButtonsArray = document.querySelectorAll('[data-task-button]');
         let taskCheckButtonsArray = document.querySelectorAll('[data-task-check-button]');
+        let taskButtonRightDivArray = document.querySelectorAll('[data-task-button-right-div]');
         let taskDatePArray = document.querySelectorAll('[data-task-date-p]');
+        let taskDateInputArray = document.querySelectorAll('[data-task-date-input]');
         checkButtonEventListener(taskButtonsArray, taskCheckButtonsArray);
-        taskDateParaEventListener(taskButtonsArray, taskDatePArray);
+        taskDateParaEventListener(taskButtonsArray, taskDatePArray, taskDateInputArray, taskButtonRightDivArray);
     }
     
     function checkButtonEventListener (taskButtonsArray, taskCheckButtonsArray) {    
         for (let i = 0; i < taskButtonsArray.length; i++) {
             taskCheckButtonsArray[i].addEventListener('click', () => {
                 console.log(`Check task ${i} has been clicked`);
+                taskButtonsArray[i].replaceChildren();
                 taskList_DOM.removeChild(taskButtonsArray[i]);
             })
         }
     }
     
-    function taskDateParaEventListener (taskButtonsArray, taskDatePArray) {
+    function taskDateParaEventListener (taskButtonsArray, taskDatePArray, taskDateInputArray, taskButtonRightDivArray) {
         for (let i = 0; i < taskButtonsArray.length; i++) {
             taskDatePArray[i].addEventListener('click', () => {
                 console.log(`Task date p ${i} has been clicked`);
-    
+
+                taskDatePArray[i].style.display = 'none';
+                taskDateInputArray[i].style.display = 'flex';
+
+                taskButtonRightDivArray[i].append(taskDateInputArray[i]);
             })
         }
     }
