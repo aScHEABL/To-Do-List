@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
     <div data-content class="content">
@@ -16,19 +17,19 @@
             </div>
             <div data-sidebar class="sidebar">
                 <div class="upcoming-events-div" data-upcoming-events-div>
-                    <button class="sidebar-date-button" data-sidebar-date-button>
+                    <button class="sidebar-date-button" data-sidebar-date-button id="inbox-button">
                         <img src="../src/images/inbox.png" alt="inbox-icon" class="icon">
                         Inbox
                     </button>
-                    <button class="sidebar-date-button" data-sidebar-date-button>
+                    <button class="sidebar-date-button" data-sidebar-date-button id="today-button">
                         <img src="../src/images/calendar-today.png" alt="today-icon" class="icon">
                         Today
                     </button>
-                    <button class="sidebar-date-button" data-sidebar-date-button>
+                    <button class="sidebar-date-button" data-sidebar-date-button id="week-button">
                         <img src="../src/images/calendar-week.png" alt="week-icon" class="icon">
                         This week
                     </button>
-                    <button class="sidebar-date-button" data-sidebar-date-button>
+                    <button class="sidebar-date-button" data-sidebar-date-button id="month-button">
                         <img src="../src/images/calendar-month.png" alt="month-icon" class="icon">
                         This month
                     </button>
@@ -47,7 +48,7 @@
                     <button class="task-button" data-task-button>
                         <div class="task-button-left-div" data-task-button-left-div>
                             <div class="task-check-button" data-task-check-button></div>
-                            <h2 class="task-title-h2" data-task-title-h2>TASK TITLE 11111111111111111</h2>
+                            <h2 class="task-title-h2" data-task-title-h2>Task Title</h2>
                         </div>
                         <div class="task-button-right-div" data-button-right-div>
                             <p class="task-date-p" data-task-date-p>No Date</p>
