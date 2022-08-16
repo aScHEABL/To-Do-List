@@ -18,5 +18,6 @@ export const todayButton_DOM = document.querySelector(`#today-button`);
 export const weekButton_DOM = document.querySelector(`#week-button`);
 export const monthButton_DOM = document.querySelector(`#month-button`);
 
+
 eventListener();
 dataBase();

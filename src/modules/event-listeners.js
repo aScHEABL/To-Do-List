@@ -3,12 +3,10 @@ import { main_DOM, addTaskButton_DOM, taskList_DOM, addTaskPopupDiv_DOM, addTask
 taskCancelButton_DOM, taskInput_DOM } from '../index.js';
 // Sidebar tabs DOM
 import { inboxButton_DOM, todayButton_DOM, weekButton_DOM, monthButton_DOM } from '../index.js';
-
 import taskButton from './task-button.js';
 
-
-
 export default function eventListener () {
+    // Add task to task list
     addTaskButton_DOM.addEventListener(`click`, () => {
         console.log(`Add task button has been clicked`);
 
@@ -33,6 +31,7 @@ export default function eventListener () {
     taskAddConfirmButton_DOM.addEventListener('click', (e) => {
         console.log('Add task confirm button has been clicked');
 
+
         addTaskButton_DOM.style.display = 'flex';
 
         main_DOM.removeChild(addTaskPopupDiv_DOM);
@@ -42,8 +41,9 @@ export default function eventListener () {
             alert("Task name can't be empty!");
             return;
         }
-        
+
         taskButton();
+        getTaskButtonArray();
     })
 
     taskCancelButton_DOM.addEventListener('click', (e) => {
@@ -54,6 +54,19 @@ export default function eventListener () {
         main_DOM.removeChild(addTaskPopupDiv_DOM);
         addTaskPopupDiv_DOM.replaceChildren();
     })
+
+    // Task checked/completed
+    function getTaskButtonArray () {
+        let taskButtonArray = document.querySelectorAll(`[data-task-button]`);
+        let taskCheckButtonArray = document.querySelectorAll(`[data-task-check-button]`);
+        console.log(taskButtonArray);
+        for (let i = 0; i < taskButtonArray.length; i++) {
+            taskCheckButtonArray[i].addEventListener(`click`, () => {
+                console.log(`${i} has been clicked`);
+            })
+        }
+    }   
+    // Sidebar tabs
 
     inboxButton_DOM.addEventListener(`click`, (e) => {
         console.log(`Inbox tab has been clicked`);
