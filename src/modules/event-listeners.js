@@ -3,7 +3,11 @@ import { main_DOM, addTaskButton_DOM, taskList_DOM, addTaskPopupDiv_DOM, addTask
 taskCancelButton_DOM, taskInput_DOM } from '../index.js';
 // Sidebar tabs DOM
 import { inboxButton_DOM, todayButton_DOM, weekButton_DOM, monthButton_DOM } from '../index.js';
+
 import taskButton from './task-button.js';
+import dataBase from './database.js';
+import { taskCheckButtonEventListener } from './task-array.js';
+
 
 export default function eventListener () {
     // Add task to task list
@@ -43,7 +47,8 @@ export default function eventListener () {
         }
 
         taskButton();
-        getTaskButtonArray();
+        taskCheckButtonEventListener();
+        // dataBase();
     })
 
     taskCancelButton_DOM.addEventListener('click', (e) => {
@@ -55,17 +60,6 @@ export default function eventListener () {
         addTaskPopupDiv_DOM.replaceChildren();
     })
 
-    // Task checked/completed
-    function getTaskButtonArray () {
-        let taskButtonArray = document.querySelectorAll(`[data-task-button]`);
-        let taskCheckButtonArray = document.querySelectorAll(`[data-task-check-button]`);
-        console.log(taskButtonArray);
-        for (let i = 0; i < taskButtonArray.length; i++) {
-            taskCheckButtonArray[i].addEventListener(`click`, () => {
-                console.log(`${i} has been clicked`);
-            })
-        }
-    }   
     // Sidebar tabs
 
     inboxButton_DOM.addEventListener(`click`, (e) => {

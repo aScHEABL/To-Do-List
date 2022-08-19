@@ -1,6 +1,6 @@
 import eventListener from './modules/event-listeners.js';
 import switchTabsLogic from './modules/switch-tabs-logic.js';
-import { dataBase } from './modules/database.js';
+import dataBase from './modules/database.js';
 
 // Task
 export const main_DOM = document.querySelector('main');
@@ -18,6 +18,8 @@ export const todayButton_DOM = document.querySelector(`#today-button`);
 export const weekButton_DOM = document.querySelector(`#week-button`);
 export const monthButton_DOM = document.querySelector(`#month-button`);
 
+// Task buttons
 
+// functions
 eventListener();
 dataBase();
