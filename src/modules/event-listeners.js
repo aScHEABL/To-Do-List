@@ -1,16 +1,36 @@
-// Task list DOM
+// Sidebar tabs
+import { sidebarInboxTab_DOM, sidebarTodayTab_DOM, sidebarWeekTab_DOM, sidebarMonthTab_DOM } from "../index.js";
+// Task buttons
 import { main_DOM, addTaskButton_DOM, taskList_DOM, addTaskPopupDiv_DOM, addTaskPopupButtonsDiv_DOM, taskAddConfirmButton_DOM, 
-taskCancelButton_DOM, taskInput_DOM } from '../index.js';
-// Sidebar tabs DOM
-import { inboxButton_DOM, todayButton_DOM, weekButton_DOM, monthButton_DOM } from '../index.js';
+    taskCancelButton_DOM, taskInput_DOM } from '../index.js';
 
-import createTaskToList from './task-button.js';
-import LocalStorageFN from './LocalStorageFN.js';
-import { taskCheckButtonEventListener, taskDatePButtonEventListener } from './task-array.js';
+import inboxPage from "./inbox.js";
 
+import { currentPage } from "../index.js";
 
 export default function eventListener () {
-    // Add task to task list
+
+    // Sidebar tabs
+
+    sidebarInboxTab_DOM.addEventListener(`click`, () => {
+        console.log(`Switching to inbox page`);
+        inboxPage();
+    })
+
+    sidebarTodayTab_DOM.addEventListener(`click`, () => {
+        console.log(`Switching to today page`);
+    })
+
+    sidebarWeekTab_DOM.addEventListener(`click`, () => {
+        console.log(`Switching to week page`);
+    })
+
+    sidebarMonthTab_DOM.addEventListener(`click`, () => {
+        console.log(`Swithcing to month page`);
+    })
+
+    // Task buttons
+
     addTaskButton_DOM.addEventListener(`click`, () => {
         console.log(`Add task button has been clicked`);
 
@@ -32,50 +52,44 @@ export default function eventListener () {
         addTaskPopupButtonsDiv_DOM.append(taskAddConfirmButton_DOM, taskCancelButton_DOM);
     })
 
-    taskAddConfirmButton_DOM.addEventListener('click', (e) => {
+    taskAddConfirmButton_DOM.addEventListener('click', () => {
         console.log('Add task confirm button has been clicked');
 
 
         addTaskButton_DOM.style.display = 'flex';
 
-        main_DOM.removeChild(addTaskPopupDiv_DOM);
         addTaskPopupDiv_DOM.replaceChildren();
+        main_DOM.removeChild(addTaskPopupDiv_DOM);
 
         if (taskInput_DOM.value.length === 0) {
             alert("Task name can't be empty!");
             return;
         }
 
-        createTaskToList();
-        LocalStorageFN();
-        taskCheckButtonEventListener();
-        taskDatePButtonEventListener();
+        switch (currentPage) {
+            case 0:
+                // Inbox page
+                break;
+            case 1:
+                // Today page
+                break;
+            case 2:
+                // Week page
+                break;
+            case 3:
+                // Month page
+                break;
+        }
     })
 
-    taskCancelButton_DOM.addEventListener('click', (e) => {
+    taskCancelButton_DOM.addEventListener('click', () => {
         console.log('Cancel task confirm button has been clicked');
 
         addTaskButton_DOM.style.display = 'flex';
 
-        main_DOM.removeChild(addTaskPopupDiv_DOM);
         addTaskPopupDiv_DOM.replaceChildren();
+        main_DOM.removeChild(addTaskPopupDiv_DOM);
     })
 
-    // Sidebar tabs
 
-    inboxButton_DOM.addEventListener(`click`, (e) => {
-        console.log(`Inbox tab has been clicked`);
-    })
-    
-    todayButton_DOM.addEventListener(`click`, (e) => {
-        console.log(`Today tab has been clicked`);
-    })
-    
-    weekButton_DOM.addEventListener(`click`, (e) => {
-        console.log(`Week tab has been clicked`);
-    })
-    
-    monthButton_DOM.addEventListener(`click`, (e) => {
-        console.log(`Month tab has been clicked`);
-    })
 }

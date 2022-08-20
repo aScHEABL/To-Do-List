@@ -1,16 +1,10 @@
-import { inboxTaskArray } from './inbox.js';
-import { taskInput_DOM } from '../index.js';
-import { format } from 'date-fns';
-
 class Task {
-    constructor (taskName, dueTime) {
-        this.taskName = taskName;
-        this.dueTime = dueTime;
+    constructor (taskTitle, dueTime) {
+        this.taskTitle = taskTitle;
+        this.dueTime = dueTime;   
     }
 }
 
-export default function LocalStorageFN () {
+export default function LocalStorageFN (taskArray) {
     
-    inboxTaskArray.push(new Task(taskInput_DOM.value));
-    console.log(inboxTaskArray);
 }

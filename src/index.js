@@ -1,8 +1,19 @@
-import eventListener from './modules/event-listeners.js';
-import switchTabsLogic from './modules/switch-tabs-logic.js';
-import LocalStorageFN from './modules/LocalStorageFN.js';
+import eventListener from "./modules/event-listeners.js";
+import inboxPage from "./modules/inbox.js";
 
-// Task
+// Current page, 0 = Inbox, 1 = Today, 2 = Week, 3 = Month
+
+export let currentPage = 0;
+
+//Sidebar tabs
+
+export const sidebarInboxTab_DOM = document.querySelector(`#inbox-button`);
+export const sidebarTodayTab_DOM = document.querySelector(`#today-button`);
+export const sidebarWeekTab_DOM = document.querySelector(`#week-button`);
+export const sidebarMonthTab_DOM = document.querySelector(`#month-button`);
+
+// Task buttons
+
 export const main_DOM = document.querySelector('main');
 export const addTaskButton_DOM = document.querySelector('[data-add-task-button]');
 export const taskList_DOM = document.querySelector('[data-task-list]');
@@ -12,14 +23,6 @@ export const taskAddConfirmButton_DOM = document.createElement('button');
 export const taskCancelButton_DOM = document.createElement('button');
 export const taskInput_DOM = document.createElement('input');
 
-// Sidebar
-export const inboxButton_DOM = document.querySelector(`#inbox-button`);
-export const todayButton_DOM = document.querySelector(`#today-button`);
-export const weekButton_DOM = document.querySelector(`#week-button`);
-export const monthButton_DOM = document.querySelector(`#month-button`);
-
-// Task buttons
-
 // functions
+inboxPage();
 eventListener();
-// LocalStorageFN();
