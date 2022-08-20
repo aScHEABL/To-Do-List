@@ -1,6 +1,6 @@
 import eventListener from './modules/event-listeners.js';
 import switchTabsLogic from './modules/switch-tabs-logic.js';
-import dataBase from './modules/database.js';
+import LocalStorageFN from './modules/LocalStorageFN.js';
 
 // Task
 export const main_DOM = document.querySelector('main');
@@ -22,4 +22,4 @@ export const monthButton_DOM = document.querySelector(`#month-button`);
 
 // functions
 eventListener();
-dataBase();
+// LocalStorageFN();

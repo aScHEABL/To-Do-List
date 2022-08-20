@@ -4,9 +4,9 @@ taskCancelButton_DOM, taskInput_DOM } from '../index.js';
 // Sidebar tabs DOM
 import { inboxButton_DOM, todayButton_DOM, weekButton_DOM, monthButton_DOM } from '../index.js';
 
-import taskButton from './task-button.js';
-import dataBase from './database.js';
-import { taskCheckButtonEventListener } from './task-array.js';
+import createTaskToList from './task-button.js';
+import LocalStorageFN from './LocalStorageFN.js';
+import { taskCheckButtonEventListener, taskDatePButtonEventListener } from './task-array.js';
 
 
 export default function eventListener () {
@@ -46,9 +46,10 @@ export default function eventListener () {
             return;
         }
 
-        taskButton();
+        createTaskToList();
+        LocalStorageFN();
         taskCheckButtonEventListener();
-        // dataBase();
+        taskDatePButtonEventListener();
     })
 
     taskCancelButton_DOM.addEventListener('click', (e) => {

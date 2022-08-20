@@ -2,7 +2,7 @@ import { main_DOM, addTaskButton_DOM, taskList_DOM, addTaskPopupDiv_DOM, addTask
     taskCancelButton_DOM, taskInput_DOM } from '../index.js';
     
 
-export default function taskButton () {
+export default function createTaskToList () {
     const taskButton_DOM = document.createElement('button');
     const taskButtonLeftDiv_DOM = document.createElement('div');
     const taskCheckButton_DOM = document.createElement('div');
