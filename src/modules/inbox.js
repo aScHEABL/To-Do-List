@@ -1,15 +1,13 @@
-import clearRender from "./clear-render.js";
-import LocalStorageFN from "./LocalStorageFN.js";
-import renderTasks from "./render-tasks.js";
-import { currentPage } from "../index.js";
+import clearRender from "./clear-render";
+import renderTasks from "./render-tasks";
+
+export let inboxTaskArray = [];
 
 export default function inboxPage () {
-    currentPage = 0;
-
-    const taskArray = [];
-
+    console.log(`Switched to inbox page`);
     clearRender();
 
-    LocalStorageFN(taskArray);
-    console.log(taskArray);
+    renderTasks(localStorage.getItem("inboxTaskArray"));
+
+    
 }
