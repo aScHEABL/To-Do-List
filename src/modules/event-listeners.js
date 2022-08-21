@@ -5,9 +5,13 @@ import { main_DOM, addTaskButton_DOM, taskList_DOM, addTaskPopupDiv_DOM, addTask
     taskCancelButton_DOM, taskInput_DOM } from '../index.js';
 
 import inboxPage from "./inbox.js";
+import todayPage from "./today.js";
+import weekPage from "./this-week.js";
+import monthPage from "./this-month.js";
+
+import LocalStorageFN from "./LocalStorageFN.js";
 
 import { currentPage } from "../index.js";
-import LocalStorageFN from "./LocalStorageFN.js";
 
 export default function eventListener () {
 
@@ -19,18 +23,17 @@ export default function eventListener () {
     })
 
     sidebarTodayTab_DOM.addEventListener(`click`, () => {
-        console.log(`Switching to today page`);
-        
+        todayPage();
         currentPage = 1;
     })
 
     sidebarWeekTab_DOM.addEventListener(`click`, () => {
-        console.log(`Switching to week page`);
+        weekPage();
         currentPage = 2;
     })
 
     sidebarMonthTab_DOM.addEventListener(`click`, () => {
-        console.log(`Swithcing to month page`);
+        monthPage();
         currentPage = 3;
     })
 
@@ -80,16 +83,21 @@ export default function eventListener () {
             case 1:
                 // Today page
                 LocalStorageFN(1, taskInput_DOM.value)
+                todayPage();
                 break;
             case 2:
                 // Week page
                 LocalStorageFN(2, taskInput_DOM.value)
+                weekPage();
                 break;
             case 3:
                 // Month page
                 LocalStorageFN(3, taskInput_DOM.value)
+                monthPage();
                 break;
         }
+
+        
     })
 
     taskCancelButton_DOM.addEventListener('click', () => {

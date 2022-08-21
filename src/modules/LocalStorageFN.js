@@ -1,4 +1,7 @@
 import { inboxTaskArray } from "./inbox.js";
+import { todayTaskArray } from "./today.js";
+import { weekTaskArray } from "./this-week.js";
+import { monthTaskArray } from "./this-month.js";
 
 class Task {
     constructor (taskTitle, dueTime) {
@@ -17,15 +20,21 @@ export default function LocalStorageFN (pageIndex, title) {
             break;
         case 1:
             // Today task array
-            let todayTaskArray = [];
+            todayTaskArray.push(new Task(title));
+            let todayTask_serialized = JSON.stringify(todayTaskArray);
+            localStorage.setItem("todayTaskArray", todayTask_serialized);
             break;
         case 2:
             // Week task array
-            let weekTaskArray = [];
+            weekTaskArray.push(new Task(title));
+            let weekTask_serialized = JSON.stringify(weekTaskArray);
+            localStorage.setItem("weekTaskArray", weekTask_serialized);
             break;
         case 3:
             // Month task array
-            let monthTaskArray = [];
+            monthTaskArray.push(new Task(title));
+            let monthTask_serialized = JSON.stringify(monthTaskArray);
+            localStorage.setItem("monthTaskArray", monthTask_serialized);
             break;
     }
     

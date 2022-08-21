@@ -1,11 +1,11 @@
 import eventListener from "./modules/event-listeners.js";
 import inboxPage from "./modules/inbox.js";
 
-// Current page, 0 = Inbox, 1 = Today, 2 = Week, 3 = Month
+// Current page, 0 = Inbox(default), 1 = Today, 2 = Week, 3 = Month
 
 export let currentPage = 0;
 
-//Sidebar tabs
+// Sidebar tabs
 
 export const sidebarInboxTab_DOM = document.querySelector(`#inbox-button`);
 export const sidebarTodayTab_DOM = document.querySelector(`#today-button`);
@@ -23,6 +23,6 @@ export const taskAddConfirmButton_DOM = document.createElement('button');
 export const taskCancelButton_DOM = document.createElement('button');
 export const taskInput_DOM = document.createElement('input');
 
-// functions
+// Active functions
 inboxPage();
 eventListener();
