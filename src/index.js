@@ -1,5 +1,6 @@
 import eventListener from "./modules/event-listeners.js";
 import inboxPage from "./modules/inbox.js";
+import "./style.css";
 
 // Current page, 0 = Inbox(default), 1 = Today, 2 = Week, 3 = Month
 
