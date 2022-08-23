@@ -9,5 +9,4 @@ export default function inboxPage () {
 
     renderTasks(localStorage.getItem("inboxTaskArray"));
 
-    
 }

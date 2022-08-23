@@ -10,7 +10,7 @@ class Task {
     }
 }
 
-export default function LocalStorageFN (pageIndex, title) {
+export function addLocalStorageFN (pageIndex, title) {
     switch (pageIndex) {
         case 0:
             // Inbox task array

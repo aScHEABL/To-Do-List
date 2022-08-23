@@ -1,14 +1,14 @@
 import { taskList_DOM } from "../index.js";
+import { currentPage } from "../index.js";
+import clearRender from "./clear-render.js";
 
 export default function renderTasks (taskArray) {
-    // console.log(taskArray);
     let taskArray_deserialized = JSON.parse(taskArray);
-    console.log(taskArray_deserialized);
 
     if (taskArray_deserialized == null) {
         return;
     } else {
-        taskArray_deserialized.forEach((taskButton) => {
+        taskArray_deserialized.forEach((taskButton, index) => {
         const taskButton_DOM = document.createElement('button');
         const taskButtonLeftDiv_DOM = document.createElement('div');
         const taskCheckButton_DOM = document.createElement('div');
@@ -37,6 +37,30 @@ export default function renderTasks (taskArray) {
 
         taskTitleH2_DOM.textContent = taskButton.taskTitle
         taskDateP_DOM.textContent = 'No Date';
+
+        taskCheckButton_DOM.addEventListener(`click`, () => {
+            console.log(`Check button ${index} has been clicked!`);
+
+            switch (currentPage) {
+                case 0:
+                    taskArray_deserialized.splice(index, 1);
+                    console.log(taskArray_deserialized);
+                    let taskArray_serialized = JSON.stringify(taskArray_deserialized);
+                    localStorage.setItem("inboxTaskArray", taskArray_serialized);
+                    clearRender();
+                    renderTasks(localStorage.getItem("inboxTaskArray"))
+                    break;
+                case 1:
+                    // today
+                    break;
+                case 2:
+                    // week
+                    break;
+                case 3:
+                    // month
+                    break;
+            }
+        })
 
         taskList_DOM.append(taskButton_DOM);
         taskButton_DOM.append(taskButtonLeftDiv_DOM, taskButtonRightDiv_DOM);

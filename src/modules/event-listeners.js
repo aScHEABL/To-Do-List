@@ -9,7 +9,7 @@ import todayPage from "./today.js";
 import weekPage from "./this-week.js";
 import monthPage from "./this-month.js";
 
-import LocalStorageFN from "./LocalStorageFN.js";
+import { addLocalStorageFN } from "./LocalStorageFN.js";
 
 import { currentPage } from "../index.js";
 
@@ -77,27 +77,26 @@ export default function eventListener () {
         switch (currentPage) {
             case 0:
                 // Inbox page
-                LocalStorageFN(0, taskInput_DOM.value)
+                addLocalStorageFN(0, taskInput_DOM.value)
                 inboxPage();
                 break;
             case 1:
                 // Today page
-                LocalStorageFN(1, taskInput_DOM.value)
+                addLocalStorageFN(1, taskInput_DOM.value)
                 todayPage();
                 break;
             case 2:
                 // Week page
-                LocalStorageFN(2, taskInput_DOM.value)
+                addLocalStorageFN(2, taskInput_DOM.value)
                 weekPage();
                 break;
             case 3:
                 // Month page
-                LocalStorageFN(3, taskInput_DOM.value)
+                addLocalStorageFN(3, taskInput_DOM.value)
                 monthPage();
                 break;
         }
 
-        
     })
 
     taskCancelButton_DOM.addEventListener('click', () => {
