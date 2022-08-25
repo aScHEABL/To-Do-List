@@ -38,14 +38,16 @@ const inboxIcon = document.querySelector(`[data-inbox-icon]`);
 const todayIcon = document.querySelector(`[data-today-icon]`);
 const weekIcon = document.querySelector(`[data-week-icon]`);
 const monthIcon = document.querySelector(`[data-month-icon]`);
-const plusIcon = document.querySelector(`[data-sidebar-add-project-icon]`);
+const sidebarAddProjectIcon = document.querySelector(`[data-sidebar-add-project-icon]`);
+const addTaskIcon = document.querySelector(`[data-add-task-icon]`);
 
 toDoListLogo.src = toDoList_logo;
 inboxIcon.src = inbox_icon;
 todayIcon.src = today_icon;
 weekIcon.src = week_icon;
 monthIcon.src = month_icon;
-plusIcon.src = plus_icon;
+sidebarAddProjectIcon.src = plus_icon;
+addTaskIcon.src = plus_icon;
 
 // Active functions
 inboxPage();
