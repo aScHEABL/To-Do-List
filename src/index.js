@@ -41,6 +41,8 @@ const monthIcon = document.querySelector(`[data-month-icon]`);
 const sidebarAddProjectIcon = document.querySelector(`[data-sidebar-add-project-icon]`);
 const addTaskIcon = document.querySelector(`[data-add-task-icon]`);
 
+// Icon src
+
 toDoListLogo.src = toDoList_logo;
 inboxIcon.src = inbox_icon;
 todayIcon.src = today_icon;

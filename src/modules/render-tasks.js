@@ -38,30 +38,6 @@ export default function renderTasks (taskArray) {
         taskTitleH2_DOM.textContent = taskButton.taskTitle
         taskDateP_DOM.textContent = 'No Date';
 
-        taskCheckButton_DOM.addEventListener(`click`, () => {
-            console.log(`Check button ${index} has been clicked!`);
-
-            switch (currentPage) {
-                case 0:
-                    taskArray_deserialized.splice(index, 1);
-                    console.log(taskArray_deserialized);
-                    let taskArray_serialized = JSON.stringify(taskArray_deserialized);
-                    localStorage.setItem("inboxTaskArray", taskArray_serialized);
-                    clearRender();
-                    renderTasks(localStorage.getItem("inboxTaskArray"))
-                    break;
-                case 1:
-                    // today
-                    break;
-                case 2:
-                    // week
-                    break;
-                case 3:
-                    // month
-                    break;
-            }
-        })
-
         taskList_DOM.append(taskButton_DOM);
         taskButton_DOM.append(taskButtonLeftDiv_DOM, taskButtonRightDiv_DOM);
         taskButtonLeftDiv_DOM.append(taskCheckButton_DOM, taskTitleH2_DOM);
