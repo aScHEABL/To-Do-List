@@ -1,4 +1,5 @@
 import eventListeners from "./modules/event-listeners.js";
+import { inboxPage } from "./modules/task-array.js";
 import "./style.css";
 
 // Images
@@ -53,5 +54,5 @@ sidebarAddProjectIcon.src = plus_icon;
 addTaskIcon.src = plus_icon;
 
 // Active functions
-// inboxPage();
+inboxPage();
 eventListeners();

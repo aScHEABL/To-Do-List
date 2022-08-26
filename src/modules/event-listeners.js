@@ -6,28 +6,32 @@ import { main_DOM, addTaskButton_DOM, taskList_DOM, addTaskPopupDiv_DOM, addTask
 
 import { currentPage } from "../index.js";
 
+import { inboxPage, todayPage, weekPage, monthPage } from "./task-array.js";
+
+import localStorageFN from "./localStorageFN.js";
+
 export default function eventListeners () {
 
     // Sidebar tabs
 
     sidebarInboxTab_DOM.addEventListener(`click`, () => {
-        console.log(`Switching to inbox page`);
         currentPage = 0;
+        inboxPage();
     })
 
     sidebarTodayTab_DOM.addEventListener(`click`, () => {
-        console.log(`Switching to today page`);
         currentPage = 1;
+        todayPage();
     })
 
     sidebarWeekTab_DOM.addEventListener(`click`, () => {
-        console.log(`Switching to week page`);
         currentPage = 2;
+        weekPage();
     })
 
     sidebarMonthTab_DOM.addEventListener(`click`, () => {
-        console.log(`Switching to month page`);
         currentPage = 3;
+        monthPage();
     })
 
     // Task buttons
@@ -67,6 +71,24 @@ export default function eventListeners () {
             return;
         }
 
+        switch (currentPage) {
+            case 0:
+                localStorageFN(0, taskInput_DOM.value);
+                inboxPage();
+                break;
+            case 1:
+                localStorageFN(1, taskInput_DOM.value);
+                todayPage();
+                break;
+            case 2:
+                localStorageFN(2, taskInput_DOM.value);
+                weekPage();
+                break;
+            case 3:
+                localStorageFN(3, taskInput_DOM.value);
+                monthPage();
+                break;
+        }
 
     })
 
