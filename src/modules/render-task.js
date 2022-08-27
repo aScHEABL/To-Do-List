@@ -98,6 +98,13 @@ export default function renderTasks (taskArray) {
             }
         })
 
+        taskDateP_DOM.addEventListener(`click`, () => {
+            console.log(`Date button ${index} has been clicked`);
+
+            taskDateP_DOM.style.display = "none";
+            taskDateInput_DOM.style.display = "flex";
+        })
+
         taskList_DOM.append(taskButton_DOM);
         taskButton_DOM.append(taskButtonLeftDiv_DOM, taskButtonRightDiv_DOM);
         taskButtonLeftDiv_DOM.append(taskCheckButton_DOM, taskTitleH2_DOM);
