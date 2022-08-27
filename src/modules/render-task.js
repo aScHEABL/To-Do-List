@@ -105,6 +105,15 @@ export default function renderTasks (taskArray) {
             taskDateInput_DOM.style.display = "flex";
         })
 
+        taskDateInput_DOM.addEventListener(`change`, () => {
+            console.log(`User selects ${taskDateInput_DOM.value}`);
+
+            taskDateP_DOM.textContent = taskDateInput_DOM.value;
+
+            taskDateP_DOM.style.display = "flex";
+            taskDateInput_DOM.style.display = "none";
+        })
+
         taskList_DOM.append(taskButton_DOM);
         taskButton_DOM.append(taskButtonLeftDiv_DOM, taskButtonRightDiv_DOM);
         taskButtonLeftDiv_DOM.append(taskCheckButton_DOM, taskTitleH2_DOM);
