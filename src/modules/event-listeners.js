@@ -89,7 +89,7 @@ export default function eventListeners () {
                 monthPage();
                 break;
         }
-
+        
     })
 
     taskCancelButton_DOM.addEventListener('click', () => {
