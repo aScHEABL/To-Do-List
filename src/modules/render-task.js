@@ -4,6 +4,8 @@ import { taskList_DOM, currentPage } from "../index.js";
 
 import clearRender from "./clear-render";
 
+import { format } from "date-fns";
+
 export default function renderTasks (taskArray) {
 
     let taskButtonArray = document.querySelectorAll(`[data-task-button]`);
@@ -108,7 +110,7 @@ export default function renderTasks (taskArray) {
         taskDateInput_DOM.addEventListener(`change`, () => {
             console.log(`User selects ${taskDateInput_DOM.value}`);
 
-            taskDateP_DOM.textContent = taskDateInput_DOM.value;
+            taskDateP_DOM.textContent = format(new Date(taskDateInput_DOM.value), "MM/dd");
 
             taskDateP_DOM.style.display = "flex";
             taskDateInput_DOM.style.display = "none";
