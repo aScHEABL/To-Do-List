@@ -43,7 +43,12 @@ export default function renderTasks (taskArray) {
         taskDateInput_DOM.type = 'date';
 
         taskTitleH2_DOM.textContent = taskButton.taskTitle
-        taskDateP_DOM.textContent = 'No Date';
+        // taskDateP_DOM.textContent = 'No Date';
+        if (taskButton.dueTime == null) {
+            taskDateP_DOM.textContent = "No Date";
+        } else {
+            taskDateP_DOM.textContent = taskButton.dueTime;
+        }
 
         taskCheckButton_DOM.addEventListener(`click`, () => {
             console.log(`Check button${index} has been clicked`);
@@ -110,7 +115,40 @@ export default function renderTasks (taskArray) {
         taskDateInput_DOM.addEventListener(`change`, () => {
             console.log(`User selects ${taskDateInput_DOM.value}`);
 
-            taskDateP_DOM.textContent = format(new Date(taskDateInput_DOM.value), "MM/dd");
+            let formattedDate = format(new Date(taskDateInput_DOM.value), "MM/dd");
+
+            taskDateP_DOM.textContent = formattedDate;
+
+            switch(currentPage) {
+                case 0:
+                    inboxTaskArray[index].dueTime = formattedDate;
+                    taskDateP_DOM.textContent = formattedDate;
+
+                    let inboxTaskArray_serialized = JSON.stringify(inboxTaskArray);
+                    localStorage.setItem("inboxTaskArray", inboxTaskArray_serialized);
+                    break;
+                case 1:
+                    todayTaskArray[index].dueTime = formattedDate;
+                    taskDateP_DOM.textContent = formattedDate;
+
+                    let todayTaskArray_serialized = JSON.stringify(todayTaskArray);
+                    localStorage.setItem("todayTaskArray", todayTaskArray_serialized);
+                    break;
+                case 2:
+                    weekTaskArray[index].dueTime = formattedDate;
+                    taskDateP_DOM.textContent = formattedDate;
+
+                    let weekTaskArray_serialized = JSON.stringify(weekTaskArray);
+                    localStorage.setItem("weekTaskArray", weekTaskArray_serialized);
+                    break;
+                case 3:
+                    monthTaskArray[index].dueTime = formattedDate;
+                    taskDateInput_DOM.textContent = formattedDate;
+
+                    let monthTaskArray_serialized = JSON.stringify(monthTaskArray);
+                    localStorage.setItem("monthTaskArray", monthTaskArray_serialized);
+                    break;
+            }
 
             taskDateP_DOM.style.display = "flex";
             taskDateInput_DOM.style.display = "none";

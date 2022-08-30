@@ -1,10 +1,10 @@
 import clearRender from "./clear-render.js";
 import renderTasks from "./render-task.js";
 
-export const inboxTaskArray = [];
-export const todayTaskArray = [];
-export const weekTaskArray = [];
-export const monthTaskArray = [];
+export let inboxTaskArray = [];
+export let todayTaskArray = [];
+export let weekTaskArray = [];
+export let monthTaskArray = [];
 
 export function inboxPage () {
     console.log(`Switched to inbox page`);

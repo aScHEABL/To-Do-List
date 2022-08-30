@@ -1,4 +1,5 @@
 import eventListeners from "./modules/event-listeners.js";
+import syncLocalStorageToTaskArray from "./syncFN.js";
 import { inboxPage } from "./modules/task-array.js";
 import "./style.css";
 
@@ -54,5 +55,6 @@ sidebarAddProjectIcon.src = plus_icon;
 addTaskIcon.src = plus_icon;
 
 // Active functions
+syncLocalStorageToTaskArray();
 inboxPage();
 eventListeners();
